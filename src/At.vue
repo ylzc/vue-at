@@ -325,9 +325,11 @@ export default {
       if (this.atwho) {
         this.atwho = null
       }
-    },
+      this.$emit("atwho-hide")
+	},
     openPanel (list, range, offset, at) {
       const fn = () => {
+      	this.$emit("atwho-show")
         const r = range.cloneRange()
         r.setStart(r.endContainer, offset + at.length) // 从@后第一位开始
         // todo: 根据窗口空间 判断向上或是向下展开
